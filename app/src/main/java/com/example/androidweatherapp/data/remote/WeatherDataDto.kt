@@ -7,13 +7,13 @@ import kotlinx.serialization.Serializable
 data class WeatherDataDto(
     val time:List<String>,
     @SerialName("temperature_2m")
-    val temperature:List<Double>,
+    val temperatures:List<Double>,
      @SerialName("weathercode")
-    val weatherCode:List<Int>,
+    val weatherCodes:List<Int>,
     @SerialName("relativehumidity_2m")
-    val humidity:List<Int>,
+    val humidities:List<Int>,
     @SerialName("windspeed_10m")
-    val windSpeed:List<Double>,
+    val windSpeeds:List<Double>,
     @SerialName("pressure_msl")
-    val pressure:List<Double>,
+    val pressures:List<Double>,
 )

@@ -19,8 +19,8 @@ import com.example.androidweatherapp.core.constants.AppSizes
 import com.example.androidweatherapp.presentation.ui.component.WeatherCard
 import com.example.androidweatherapp.presentation.ui.component.WeatherForecast
 import com.example.androidweatherapp.presentation.viewmodel.WeatherState
-import com.example.androidweatherapp.theme.DarkBlue
-import com.example.androidweatherapp.theme.DeepBlue
+import com.example.androidweatherapp.core.theme.DarkBlue
+import com.example.androidweatherapp.core.theme.DeepBlue
 
 @Composable
 fun WeatherScreen(

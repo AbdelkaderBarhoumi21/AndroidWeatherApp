@@ -11,7 +11,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import com.example.androidweatherapp.presentation.ui.screen.WeatherScreen
 import com.example.androidweatherapp.presentation.viewmodel.WeatherViewModel
-import com.example.androidweatherapp.theme.WeatherAppTheme
+import com.example.androidweatherapp.core.theme.WeatherAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

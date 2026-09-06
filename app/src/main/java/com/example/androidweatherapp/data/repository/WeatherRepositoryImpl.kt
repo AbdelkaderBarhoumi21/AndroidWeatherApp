@@ -1,10 +1,10 @@
 package com.example.androidweatherapp.data.repository
 
 import com.example.androidweatherapp.core.constants.AppStrings
+import com.example.androidweatherapp.core.util.AppResult
 import com.example.androidweatherapp.data.mappers.toWeatherInfo
 import com.example.androidweatherapp.data.remote.WeatherApi
 import com.example.androidweatherapp.domain.repository.WeatherRepository
-import com.example.androidweatherapp.domain.util.AppResult
 import com.example.androidweatherapp.domain.weather.WeatherInfo
 import javax.inject.Inject
 

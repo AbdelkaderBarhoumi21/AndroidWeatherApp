@@ -6,9 +6,9 @@ import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.androidweatherapp.core.constants.AppStrings
+import com.example.androidweatherapp.core.util.AppResult
 import com.example.androidweatherapp.domain.location.LocationTracker
 import com.example.androidweatherapp.domain.repository.WeatherRepository
-import com.example.androidweatherapp.domain.util.AppResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

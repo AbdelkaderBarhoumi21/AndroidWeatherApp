@@ -2,6 +2,7 @@ package com.example.androidweatherapp.presentation.ui
 
 import android.Manifest
 import android.os.Bundle
+import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
@@ -12,7 +13,9 @@ import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.CircularProgressIndicator
@@ -23,6 +26,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.example.androidweatherapp.presentation.ui.component.WeatherCard
+import com.example.androidweatherapp.presentation.ui.component.WeatherForecast
 import com.example.androidweatherapp.presentation.viewmodel.WeatherViewModel
 import com.example.androidweatherapp.theme.DarkBlue
 import com.example.androidweatherapp.theme.DeepBlue
@@ -69,6 +73,10 @@ class MainActivity : ComponentActivity() {
                         WeatherCard(
                             state = viewModel.state,
                             backgroundColor = DeepBlue
+                        )
+                        Spacer(modifier = Modifier.height(16.dp))
+                        WeatherForecast(
+                            state = viewModel.state
                         )
                     }
                     if (viewModel.state.isLoading) {

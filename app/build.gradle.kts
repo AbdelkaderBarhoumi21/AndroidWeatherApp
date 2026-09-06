@@ -66,4 +66,7 @@ dependencies {
     // Hilt dependencies
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
+
+    // Location
+    implementation(libs.play.services.location)
 }

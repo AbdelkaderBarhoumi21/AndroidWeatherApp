@@ -1,5 +1,6 @@
 package com.example.androidweatherapp.data.repository
 
+import com.example.androidweatherapp.core.constants.AppStrings
 import com.example.androidweatherapp.data.mappers.toWeatherInfo
 import com.example.androidweatherapp.data.remote.WeatherApi
 import com.example.androidweatherapp.domain.repository.WeatherRepository
@@ -17,7 +18,7 @@ class WeatherRepositoryImpl @Inject constructor(
 
         }catch (e: Exception){
             e.printStackTrace()
-            AppResult.Error(e.message ?: " An unknown error ocurred")
+            AppResult.Error(e.message ?: AppStrings.ERROR_UNKNOWN)
         }
     }
 }

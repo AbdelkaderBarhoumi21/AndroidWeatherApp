@@ -2,7 +2,6 @@ package com.example.androidweatherapp.presentation.ui
 
 import android.Manifest
 import android.os.Bundle
-import android.widget.Space
 import androidx.activity.ComponentActivity
 import androidx.activity.SystemBarStyle
 import androidx.activity.compose.setContent
@@ -10,26 +9,8 @@ import androidx.activity.enableEdgeToEdge
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
-import androidx.compose.material3.CircularProgressIndicator
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.dp
-import com.example.androidweatherapp.presentation.ui.component.WeatherCard
-import com.example.androidweatherapp.presentation.ui.component.WeatherForecast
+import com.example.androidweatherapp.presentation.ui.screen.WeatherScreen
 import com.example.androidweatherapp.presentation.viewmodel.WeatherViewModel
-import com.example.androidweatherapp.theme.DarkBlue
-import com.example.androidweatherapp.theme.DeepBlue
 import com.example.androidweatherapp.theme.WeatherAppTheme
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -60,42 +41,7 @@ class MainActivity : ComponentActivity() {
 
         setContent {
             WeatherAppTheme {
-                Box(
-                    modifier = Modifier
-                        .fillMaxSize()
-                        .background(DarkBlue)
-                ) {
-                    Column(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .statusBarsPadding()
-                    ) {
-                        WeatherCard(
-                            state = viewModel.state,
-                            backgroundColor = DeepBlue
-                        )
-                        Spacer(modifier = Modifier.height(16.dp))
-                        WeatherForecast(
-                            state = viewModel.state
-                        )
-                    }
-                    if (viewModel.state.isLoading) {
-                        CircularProgressIndicator(
-                            modifier = Modifier.align(Alignment.Center),
-                            color = Color.White
-                        )
-                    }
-                    viewModel.state.error?.let { error ->
-                        Text(
-                            text = error,
-                            color = Color.Red,
-                            textAlign = TextAlign.Center,
-                            modifier = Modifier
-                                .align(Alignment.Center)
-                                .padding(16.dp)
-                        )
-                    }
-                }
+                WeatherScreen(state = viewModel.state)
             }
         }
     }

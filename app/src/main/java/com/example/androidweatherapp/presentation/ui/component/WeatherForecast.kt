@@ -10,8 +10,8 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
+import com.example.androidweatherapp.core.constants.AppSizes
+import com.example.androidweatherapp.core.constants.AppStrings
 import com.example.androidweatherapp.presentation.viewmodel.WeatherState
 
 @Composable
@@ -22,26 +22,24 @@ fun WeatherForecast(
     state.weatherInfo?.weatherDataPerDay?.get(0)?.let {
         data ->
         Column(
-            modifier = modifier.fillMaxWidth().padding(horizontal = 16.dp),
+            modifier = modifier.fillMaxWidth().padding(horizontal = AppSizes.paddingNormal),
         ) {
             Text(
-                text = "Today",
-                fontSize = 20.sp,
+                text = AppStrings.TODAY,
+                fontSize = AppSizes.textNormal,
                 color = Color.White,
             )
-            Spacer(modifier= Modifier.height(16.dp))
+            Spacer(modifier= Modifier.height(AppSizes.paddingNormal))
             LazyRow(
                 content = {
                     items(data.size) { index ->
                         HourlyWeatherDisplay(
                             weatherData = data[index],
-                            modifier = Modifier.height(100.dp).padding(horizontal = 16.dp)
+                            modifier = Modifier.height(AppSizes.cardHeight).padding(horizontal = AppSizes.paddingNormal)
                         )
                     }
                 }
             )
-
-
         }
     }
 }

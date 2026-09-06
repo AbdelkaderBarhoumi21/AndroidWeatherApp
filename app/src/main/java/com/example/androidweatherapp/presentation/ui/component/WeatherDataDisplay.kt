@@ -12,8 +12,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import com.example.androidweatherapp.domain.weather.WeatherData
+import com.example.androidweatherapp.core.constants.AppSizes
 
 @Composable
 fun WeatherDataDisplay(
@@ -32,11 +31,11 @@ fun WeatherDataDisplay(
             imageVector = icon,
             contentDescription = null,
             tint = iconTint,
-            modifier = Modifier.size(25.dp)
+            modifier = Modifier.size(AppSizes.iconSmall)
         )
-        Spacer(modifier = Modifier.width(4.dp))
+        Spacer(modifier = Modifier.width(AppSizes.paddingSmall))
         Text(
-            text = "$value$unit",
+            text = "$value $unit",
             style = textStyle
         )
     }

@@ -21,9 +21,9 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.vectorResource
 import androidx.compose.ui.text.TextStyle
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import com.example.androidweatherapp.R
+import com.example.androidweatherapp.core.constants.AppSizes
+import com.example.androidweatherapp.core.constants.AppStrings
 import com.example.androidweatherapp.presentation.viewmodel.WeatherState
 import java.time.format.DateTimeFormatter
 
@@ -39,70 +39,66 @@ fun WeatherCard(
         colors = CardDefaults.cardColors(
             backgroundColor
         ),
-        shape = RoundedCornerShape(10.dp),
-        modifier = modifier.padding(16.dp)
+        shape = RoundedCornerShape(AppSizes.paddingMedium),
+        modifier = modifier.padding(AppSizes.paddingNormal)
 
     ) {
         Column(
-            modifier = Modifier.fillMaxWidth().padding(16.dp),
+            modifier = Modifier.fillMaxWidth().padding(AppSizes.paddingNormal),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
                 modifier=Modifier.align(Alignment.End),
-                text="Today ${data.time.format(DateTimeFormatter.ofPattern("HH:mm"))}",
+                text="${AppStrings.TODAY} ${data.time.format(DateTimeFormatter.ofPattern(AppStrings.TIME_FORMAT))}",
                 color = Color.White,
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(AppSizes.paddingNormal))
             Image(
                 painter = painterResource(id=data.weatherType.iconRes),
                 contentDescription = null,
-                modifier = Modifier.width(200.dp)
+                modifier = Modifier.width(AppSizes.imageLarge)
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(AppSizes.paddingNormal))
             Text(
-                text= "${data.temperatureCelsius}°C",
-                fontSize = 50.sp,
+                text= "${data.temperatureCelsius}${AppStrings.CELSIUS}",
+                fontSize = AppSizes.textLarge,
                 color = Color.White,
             )
-            Spacer(modifier = Modifier.height(16.dp))
+            Spacer(modifier = Modifier.height(AppSizes.paddingNormal))
             Text(
                 text=data.weatherType.weatherDesc,
-                fontSize = 20.sp,
+                fontSize = AppSizes.textNormal,
                 color = Color.White.copy(alpha = 0.7F)
             )
 
-            Spacer(modifier = Modifier.height(32.dp))
+            Spacer(modifier = Modifier.height(AppSizes.paddingLarge))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceAround
             ) {
                 WeatherDataDisplay(
                     value=data.pressure.toInt(),
-                    unit = "hpa",
+                    unit = AppStrings.PRESSURE_UNIT,
                     icon = ImageVector.vectorResource(id=R.drawable.ic_pressure),
                     iconTint = Color.White,
                     textStyle = TextStyle(color = Color.White)
                 )
                 WeatherDataDisplay(
                     value=data.humidity,
-                    unit = "%",
+                    unit = AppStrings.HUMIDITY_UNIT,
                     icon = ImageVector.vectorResource(id=R.drawable.ic_drop),
                     iconTint = Color.White,
                     textStyle = TextStyle(color = Color.White)
                 )
                 WeatherDataDisplay(
                     value=data.windSpeed.toInt(),
-                    unit = "hm/h",
+                    unit = AppStrings.WIND_SPEED_UNIT,
                     icon = ImageVector.vectorResource(id=R.drawable.ic_wind),
                     iconTint = Color.White,
                     textStyle = TextStyle(color = Color.White)
                 )
             }
-
-
-
         }
-
     }
 
     }
